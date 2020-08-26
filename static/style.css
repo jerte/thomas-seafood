@@ -1,2 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 .margin0 { margin: 0px; }
 .alignCenter { text-align: center; }
+.nav-link-custom {
+	
+	color: #A0031B;
+	text-align: center;
+}
+.nav-link-custom:hover {
+	
+	color: #05078A;
+	text-decoration: underline;
+}
+.brand-custom {
+	color: #05078A;
+	text-decoration: none;
+}
+.no-underline-hover {
+	text-decoration:none;
+}
+.no-underline-hover:hover {
+	text-decoration:none;
+}
+.border {
+	border: black;
+}
+.padding2 { padding: 2% }
+.font-test { color: #A0031B; font-family: 'Acme', sans-serif; }
+.shadow-test { text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
