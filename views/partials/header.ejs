@@ -1,19 +1,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<br>
 <div class="alignCenter container-fluid">
-<h1 class="padding2 font-test shadow-test" >THOMAS SEAFOOD AND TACKLE</h1>
-</div>
-<nav class="margin0 container-fluid font-test">
+
 	<div class="row">
-	  <div class="col-4">
-	     <a href="seafood" class="nav-link nav-link-custom">
-		 <h4>seafood & recipes</h4></a>
-	   </div><div class="col-4">
-		 <a href="about" class="nav-link nav-link-custom">
-	     <h4>about us</h4></a>
-	   </div><div class="col-4">
-			  <a href="contact" class="nav-link nav-link-custom">
-			    <h4>contact</h4></a>
-				</div>
+		<table class="width100"><tr><td><img class="logo-img" src="/logo1.png"></td>
+		<td><h1 class="header">THOMAS SEAFOOD AND TACKLE</h1></td>
+		<td><img class="logo-img" src="/logo2.png"></td>
+		</tr></table>
+	</div>
+</div>
+<nav class="margin0 container-fluid b">
+	<div class="row">
+	  <% for(var i of data['nav']) { %>
+	    <% if(i['json']) { %>
+		  <div class="col-3 b">
+		  <a href="<%= JSON.parse(i['json'])['link'] %>" class="padding0 nav-link nav-link-custom ">
+		  <h4><%= i['name'] %></h4>
+	 	  </a></div>
+		<% } %>
+	  <% } %>
+	</div>
 	</div>
 </nav>
-<hr>
+
+<div id="header-bottom"></div>

@@ -1,4 +1,15 @@
-<hr>
-<p>address: </p>
-<p>phone number</p>
-<p>copyright?</p>
+<div id="footer" class="container-fluid alignCenter">
+<p>
+<% for( var i of data['info'] ) { %>
+	<p>
+	<% if(i['json']) { %>
+		<%= i['name'] %> | <a href="<%= JSON.parse(i['json'])['link'] %>" class="infolink">
+			<%= JSON.parse(i['json'])['info'] %></a> 
+	<% } else { %>
+		<%= i['name'] %>
+	<% } %>
+	</p>
+<% } %>
+</p>
+<br>
+</div>

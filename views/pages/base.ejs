@@ -12,10 +12,11 @@
     <script src="/script.js"></script>
   </head>
   <body>
+	
 
-	<% var nav = data['nav'].map(x=>x['name']) %>
+	<% var nav = data['nav'].map( x => (x['json']) ? JSON.parse(x['json'])['link'] : null ) ; %>
 	<% if (subpage && subpage != page) { %>
-		<% if(nav.includes(page + '/' + subpage)) { %>
+		<% if(nav.includes('/' + page + '/' + subpage)) { %>
     		<%- include('../partials/header.ejs') %>
     		<%- include('../partials/' + page + '.ejs') %>
 			<%- include('../partials/' + page + '/' + subpage + '.ejs') %>
@@ -24,7 +25,7 @@
 		<% } else { %>
 			<%- include('404.ejs') %>
 		<% } %>
-	<% } else if (nav.includes(page)) { %>
+	<% } else if (nav.includes('/'+page)) { %>
     	<%- include('../partials/header.ejs') %>
     	<%- include('../partials/' + page + '.ejs') %>
 		<%- include('../partials/footer.ejs') %>

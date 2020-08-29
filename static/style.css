@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+body { color: #A0031B; font-family: 'Acme', sans-serif; background-color: #F5F5F5; }
 .margin0 { margin: 0px; }
 .alignCenter { text-align: center; }
 .nav-link-custom {
@@ -25,5 +26,11 @@
 	border: black;
 }
 .padding2 { padding: 2% }
-.font-test { color: #A0031B; font-family: 'Acme', sans-serif; }
-.shadow-test { text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+.header { text-shadow: 0 1px white, 1px 0 white, -1px 0px 2px black, 0 2px 2px black, 2px 0 2px black, 0 -1px 2px black ; } 
+#header-bottom { border-top: solid #212121 6px; border-bottom: solid #5688C7  3px; }
+.text-border { text-shadow: 0 1px black, 1px 0 black, 0 -1px black, -1px 0 black; }
+.logo-img { width: 100%; max-width: 125px; }
+.width100 { width: 100%; }
+.padding0 { padding : 0% }
+#footer { background-color: #212121; color: #D6D6D6; border-top: solid #5688C7 3px; } 
+.infolink { color: #5688C7; }

@@ -3,8 +3,9 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg')
+
 const pool = new Pool({
-	connectionString: process.env.DATABASE_URL,
+	connectionString: process.enc.DATABASE_URL,
 	ssl: {
 		rejectUnauthorized: false
 	}
@@ -14,6 +15,7 @@ var favicon = require('serve-favicon')
 
 var app = express()
 
+app.use(favicon(path.join(__dirname, 'favicon/favicon.ico')))
 app.use(express.static(path.join(__dirname, '/node_modules/jquery/dist/')))
 app.use(express.static(path.join(__dirname, '/node_modules/ejs/')))
 
@@ -43,6 +45,8 @@ app.get('/:page?/:subpage?', async (req,res) => {
 		}
 		res.render('pages/base', {page: req.params.page, subpage: req.params.page, data: data});
 	  } else {
+	  	console.log(pages.rows);
+	  	console.log(index, req.params.page);
 	  	res.render('pages/404');
 	  }
 
