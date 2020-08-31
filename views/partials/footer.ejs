@@ -1,7 +1,7 @@
-<div id="footer" class="container-fluid alignCenter">
+<div id="footer" class="padding2 container-fluid alignCenter">
 <p>
 <% for( var i of data['info'] ) { %>
-	<p>
+	<p class="line-height-70">
 	<% if(i['json']) { %>
 		<%= i['name'] %> | <a href="<%= JSON.parse(i['json'])['link'] %>" class="infolink">
 			<%= JSON.parse(i['json'])['info'] %></a> 
@@ -11,5 +11,5 @@
 	</p>
 <% } %>
 </p>
-<br>
+<p>Thomas Tackle & Seafood</p>
 </div>

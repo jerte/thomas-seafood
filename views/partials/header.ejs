@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 <br>
-<div class="alignCenter container-fluid">
+<div class="font-acme alignCenter container-fluid">
 
 	<div class="row">
 		<table class="width100"><tr><td><img class="logo-img" src="/logo1.png"></td>
-		<td><h1 class="header">THOMAS SEAFOOD AND TACKLE</h1></td>
+		<td><h1 class="header">THOMAS TACKLE & SEAFOOD</h1></td>
 		<td><img class="logo-img" src="/logo2.png"></td>
 		</tr></table>
 	</div>
@@ -14,7 +14,7 @@
 	  <% for(var i of data['nav']) { %>
 	    <% if(i['json']) { %>
 		  <div class="col-3 b">
-		  <a href="<%= JSON.parse(i['json'])['link'] %>" class="padding0 nav-link nav-link-custom ">
+		  <a href="<%= JSON.parse(i['json'])['link'] %>" class="font-acme padding0 nav-link nav-link-custom ">
 		  <h4><%= i['name'] %></h4>
 	 	  </a></div>
 		<% } %>
