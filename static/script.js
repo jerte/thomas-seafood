@@ -55,6 +55,11 @@ $(document).ready(function() {
 	$("#git").click(function() {
 		window.location = $(this).find('a').attr('href');
 	});
-		
+	
+	$("#admin").submit(function(event) {
+			
+		console.log($("#user").val());
+		event.preventDefault();
+	});
 	
 });

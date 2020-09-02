@@ -3,6 +3,19 @@
 
 <p>We offer a large variety of seafood. Our selection is mostly local, but we also offer non-local seafood as well. </p>
 <p>This is a list of all of our seafood we carry. Our selection varies daily depending on what our fishermen catch.</p>
+
+<ul class="alignCenter">
+	<% for( var i=0; i<data['seafood'].length; i++ ) { %>
+		<% if( i%4==0) { %>
+			<% if(i!=0) { %> </div> <% } %>
+		<div class="row"><div class="col-3"><li><%= data['seafood'][i]['name'] %></li></div>
+		<% } else { %>
+		<div class="col-3"><li><%= data['seafood'][i]['name'] %></li></div>
+		<% } %>
+	<% } %>
+</ul>
+<h3 class="font-acme">Shellfish</h3>
+<h3 class="font-acme">Fish</h3>
 <h2 class="font-acme">recipes</h2>
 <p>Here are some recipes we love and reccomend: </p>
 </div>

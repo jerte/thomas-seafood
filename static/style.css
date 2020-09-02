@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-body { color: #A0031B; font-family: 'Montserrat', sans-serif; background-color: #F5F5F5; }
+body { height: 100%; color: #A0031B; font-family: 'Montserrat', sans-serif; background-color: #F5F5F5; }
 .font-acme { font-family: 'Acme', sans-serif; }
 .gmap_canvas {overflow:hidden;background:none!important;height:350px;width:350px;}<
 .margin0 { margin: 0px; }
