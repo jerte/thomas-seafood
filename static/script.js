@@ -62,4 +62,25 @@ $(document).ready(function() {
 		event.preventDefault();
 	});
 	
+	$(".add").click(function(e1) {
+		if($("#" + e1.currentTarget.id + " p").text()) {
+			var form = "<form class=\"add-form\" id=\"form-"+ e1.currentTarget.id.slice(4) + 
+					   "\"><input type=\"text\" id=\"input-" + e1.currentTarget.id.slice(4) + 
+					   "\"><input type=\"submit\"></form>";
+			$("#"+ e1.currentTarget.id).html(form);
+			$(document.body).append(form);
+			
+			$(".add-form").submit(function(e) {
+				console.log("submitted " + e.currentTarget.id);
+				console.log($("#input-" + e.currentTarget.id.slice(5))[0].value);
+				
+				$.post('/admin/add', {item_name: e.currentTarget.id.slice(5), 
+										name: $("#input-"+e.currentTarget.id.slice(5))[0].value}, function(x) {
+					if(x=='yes') {
+						alert('success');
+					}
+				});
+			});
+		}
+	});
 });

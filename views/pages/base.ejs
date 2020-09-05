@@ -12,13 +12,12 @@
     <script src="/script.js"></script>
   </head>
   <body>
-	
-	<% if(data['admin'] && !data['admin_auth']) { %>
-			
-		<%- include('../pages/admin_auth') %>	
-	<% } else { %>
 
-	<% var nav = data['nav'].map( x => (x['json']) ? JSON.parse(x['json'])['link'] : null ) ; %>
+	<% if(admin && !access) { %>
+		<%- include('../pages/admin_auth') %>	
+	<% } else { %>	
+
+	<% var nav = data['nav'].map( x => (x['json']) ? x['json']['link'] : null ) ; %>
 	<% if (subpage && subpage != page) { %>
 		<% if(nav.includes('/' + page + '/' + subpage)) { %>
     		<%- include('../partials/header.ejs') %>

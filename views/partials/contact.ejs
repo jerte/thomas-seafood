@@ -5,8 +5,8 @@
 		<% for(var i of data['info']) { %>
         <p>
         <% if(i['json']) { %>
-            <%= i['name'] %> | <a href="<%= JSON.parse(i['json'])['link'] %>" class="infolink">
-            <%= JSON.parse(i['json'])['info'] %></a> 
+            <%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="infolink">
+            <%= i['json']['info'] %></a> 
         <% } else { %>
             <%= i['name'] %>
         <% } %>
@@ -23,8 +23,8 @@
     <% for(var i of data['info']) { %>
 		<p>
 		<% if(i['json']) { %>
-			<%= i['name'] %> | <a href="<%= JSON.parse(i['json'])['link'] %>" class="infolink">
-			<%= JSON.parse(i['json'])['info'] %></a> 
+			<%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="infolink">
+			<%= i['json']['info'] %></a> 
 		<% } else { %>
 			<%= i['name'] %>
 		<% } %>
