@@ -59,7 +59,11 @@ $(document).ready(function() {
 	$("#admin").submit(function(event) {
 			
 		console.log($("#user").val());
-		event.preventDefault();
+		$.post('/admin/login', {user: $("#user").val(), pass: $("#pass").val()}, function(x) {
+			if(x=='auth') {
+				alert('auth');
+			}
+		});
 	});
 	
 	$(".add").click(function(e1) {
@@ -79,7 +83,7 @@ $(document).ready(function() {
 					if(x=='yes') {
 						alert('success');
 					}
-				});
+				}).fail(function() { alert('err'); });
 			});
 		}
 	});

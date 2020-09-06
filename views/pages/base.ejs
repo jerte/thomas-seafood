@@ -13,7 +13,7 @@
   </head>
   <body>
 
-	<% if(admin && !access) { %>
+	<% if(locals.admin && !locals.access) { %>
 		<%- include('../pages/admin_auth') %>	
 	<% } else { %>	
 

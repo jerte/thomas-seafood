@@ -15,7 +15,7 @@
 	    <% if(i['json']) { %>
 		  <div class="col-3 b">
 		  <a href="
-		  	<% if(access) { %>/admin<% } %>
+		  	<% if(locals.access) { %>/admin<% } %>
 			<%= i['json']['link'] %>" class="font-acme padding0 nav-link nav-link-custom ">
 		  <h4><%= i['name'] %></h4>
 	 	  </a></div>

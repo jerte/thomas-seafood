@@ -34,3 +34,4 @@ body { height: 100%; color: #A0031B; font-family: 'Montserrat', sans-serif; back
 #footer { background-color: #212121; color: #D6D6D6; border-top: solid #5688C7 3px; } 
 .infolink { color: #5688C7; }
 .line-height-70 { line-height: 70%; }
+.alignLeft { text-align: left; }

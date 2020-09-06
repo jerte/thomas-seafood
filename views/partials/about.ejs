@@ -1,6 +1,23 @@
 <div class="container-fluid alignCenter padding2">
-<h2 class="font-acme">our story</h2>
-<p>history, pictures</p>
-<h2 class="font-acme">our team</h2>
-<p>pictures & names</p>
+	<h2 class="font-acme">our story</h2>
+	<p>history, pictures</p>
+	<div class="row">
+		<% for( var i of data['stories'] ) { %>
+			<div class="col-6"><%= i['name'] %></div>
+		<% } %>
+		<% if(locals.access) { %>
+			<div class="col-6 add" id="add-stories"><p>add story</p></div>
+		<% } %>
+	</div>
+	
+	<h2 class="font-acme">our team</h2>
+	<p>pictures & names</p>
+	<div class="row">
+		<% for( var i of data['team'] ) { %>
+			<div class="col-3"><%= i['name'] %></div>
+		<% } %>
+		<% if(locals.access) { %>
+			<div class="col-3 add" id="add-team"><p>add team</p></div>
+		<% } %>
+	</div>
 </div>

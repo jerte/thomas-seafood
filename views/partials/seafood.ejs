@@ -4,26 +4,37 @@
 <p>We offer a large variety of seafood. Our selection is mostly local, but we also offer non-local seafood as well. </p>
 <p>This is a list of all of our seafood we carry. Our selection varies daily depending on what our fishermen catch.</p>
 
-<h3 class="font-acme">Shellfish</h3>
+<h3 class="font-acme">shellfish</h3>
 <ul class="alignCenter">
-	<div class="row">
+	<div class="row alignCenter">
 	<% for( var i of data['shellfish'] ) { %>	
-		<div class="col-3"><li><%= i['name'] %></li></div>
+		<div class="col-md-3 col-sm-4 col-6"><li class="alignLeft"><%= i['name'] %></li></div>
 	<% } %>
-	<% if( access ) { %>
-		<div class="col-3"><li class="add" id="add-shellfish"><p>add shellfish</p></li></div>
+	<% if( locals.access ) { %>
+		<div class="col-3"><li class="add alignLeft" id="add-shellfish"><p>add shellfish</p></li></div>
 	<% } %>
 	</div>
 </ul>
-<h3 class="font-acme">Fish</h3>
+<h3 class="font-acme">fish</h3>
 <ul class="alignCenter">
 	<div class="row">
 	<% for( var i of data['fish'] ) { %>	
-		<div class="col-3"><li><%= i['name'] %></li></div>
+		<div class="col-md-3 col-sm-4 col-6"><li class="alignLeft"><%= i['name'] %></li></div>
 	<% } %>
-	<% if( access ) { %>
-		<div class="col-3"><li class="add" id="add-fish"><p>add fish</p></li></div>
+	<% if( locals.access ) { %>
+		<div class="col-3"><li class="add alignLeft" id="add-fish"><p>add fish</p></li></div>
 	<% } %>
+	</div>
+</ul>
+<h3 class="font-acme">more</h3>
+<ul class="alignCenter">
+	<div class="row">
+		<% for (var i of data['more']) { %>
+			<div class="col-md-3 col-sm-4 col-6"><li class="alignLeft"><%= i['name'] %></li></div>
+		<% } %>
+		<% if(locals.access) { %>
+			<div class="col-3"><li class="add alignLeft" id="add-more"><p>add more</p></li></div>
+		<% } %>
 	</div>
 </ul>
 
@@ -32,10 +43,10 @@
 <ul class="alignCenter">
 	<div class="row">
 	<% for( var i of data['recipes'] ) { %>	
-		<div class="col-3"><li><%= i['name'] %></li></div>
+		<div class="col-3"><li class="alignLeft"><%= i['name'] %></li></div>
 	<% } %>
-	<% if( access ) { %>
-		<div class="col-3"><li class="add" id="add-recipes"><p>add recipe</p></li></div>
+	<% if( locals.access ) { %>
+		<div class="col-3"><li class="add alignLeft" id="add-recipes"><p>add recipe</p></li></div>
 	<% } %>
 	</div>
 </ul>
