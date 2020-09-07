@@ -1,8 +1,8 @@
 <div class="container-fluid" style="height: 100vh;">
 <div class="row h-100"><div class="my-auto alignCenter col-12">
-<form id="admin">
-	<p>user: <span><input type="text" id="user"></span></p>
-	<p>pass: <span><input type="text" id="pass"></span></p>
+<form action="/admin/login" method="post">
+	<p>user: <span><input type="text" name="username"></span></p>
+	<p>pass: <span><input type="password" name="password"></span></p>
 	<input type="submit" value="enter">
 </form>
 </div>

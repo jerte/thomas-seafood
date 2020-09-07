@@ -56,16 +56,6 @@ $(document).ready(function() {
 		window.location = $(this).find('a').attr('href');
 	});
 	
-	$("#admin").submit(function(event) {
-			
-		console.log($("#user").val());
-		$.post('/admin/login', {user: $("#user").val(), pass: $("#pass").val()}, function(x) {
-			if(x=='auth') {
-				alert('auth');
-			}
-		});
-	});
-	
 	$(".add").click(function(e1) {
 		if($("#" + e1.currentTarget.id + " p").text()) {
 			var form = "<form class=\"add-form\" id=\"form-"+ e1.currentTarget.id.slice(4) + 
