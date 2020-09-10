@@ -62,12 +62,8 @@ $(document).ready(function() {
 					   "\"><input type=\"text\" id=\"input-" + e1.currentTarget.id.slice(4) + 
 					   "\"><input type=\"submit\"></form>";
 			$("#"+ e1.currentTarget.id).html(form);
-			$(document.body).append(form);
 			
 			$(".add-form").submit(function(e) {
-				console.log("submitted " + e.currentTarget.id);
-				console.log($("#input-" + e.currentTarget.id.slice(5))[0].value);
-				
 				$.post('/admin/add', {item_name: e.currentTarget.id.slice(5), 
 										name: $("#input-"+e.currentTarget.id.slice(5))[0].value}, function(x) {
 					if(x=='yes') {
@@ -75,6 +71,21 @@ $(document).ready(function() {
 					}
 				}).fail(function() { alert('err'); });
 			});
+		}
+	});
+
+	$(".add-pic").click(function(e) {
+		if($("#" + e.currentTarget.id + " p").text()) {
+			
+			var form = "<form encType=\"multipart/form-data\" action=\"/admin/add-pic\" " +
+							"method=\"post\" name=\"form-" + e.currentTarget.id.slice(8) +
+					    "\"><input type=\"text\" name=\"name\">" + 
+						"<input type=\"file\" name=\"fileinput" + 
+						"\"><input type=\"submit\"></form>";
+			console.log(form);
+			$("#" + e.currentTarget.id).html(form);
+			
+
 		}
 	});
 });
