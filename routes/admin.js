@@ -2,6 +2,8 @@ const express = require('express');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var path = require('path');
+const fileUpload = require('express-fileupload');
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -42,6 +44,8 @@ passport.deserializeUser(function(id, done) {
 
 var router = express.Router();
 
+router.use(fileUpload());
+
 router.get('/:page?/:subpage?', async(req, res) => {
 	try {
 		const client = await pool.connect();
@@ -57,12 +61,12 @@ router.get('/:page?/:subpage?', async(req, res) => {
 	  
 	  	if(index >= 0) {
 			for(var i of pages.rows[index]['data_req'].split(" ")) {
-				const q = await client.query('SELECT * FROM data where item_id=' +
+				const d_q = await client.query('SELECT * FROM data where item_id=' +
 									  			     '(SELECT id FROM data_items where name=\'' + i + '\')');
-				data[i] = q.rows;
+				data[i] = d_q.rows;
 			}
-	
-			res.render('pages/base', {admin: true, access: req.user, 
+			
+			res.render('pages/base', {admin: true, access: req.user,
 									  page: req.params.page, subpage: req.params.subpage, data: data});
 	  	} else {
 	  		console.log(index, req.params.page);
@@ -72,7 +76,7 @@ router.get('/:page?/:subpage?', async(req, res) => {
 	 	client.release();
 			
 	} catch(err) {
-		res.send(err);
+		res.send("" + err);
 	}
 });
 
@@ -80,32 +84,43 @@ router.post('/login',
 	passport.authenticate('local', {successRedirect: '/admin'})
 );
 
-router.post('/add', async (req, res) => {
+router.post('/add/:data_item?', async (req, res) => {
 	try {
 		const client = await pool.connect();
-		const item_id = await client.query('SELECT id FROM data_items WHERE name=\'' + req.body.item_name + '\'');
-		console.log('INSERT INTO data(item_id, name, json) VALUES (' +  item_id.rows[0]['id'] + 
-	  			    ', \'' + req.body.name + '\', \'{}\')');
+		var valuestr, name;
+		var redirect = false;
+		if(req.params.data_item=='image') {
+		
+			valuestr = '\'/images/' + req.body.item_name + '/' + req.files.img['name'] + '\',' +
+					   '\'{ "page" : "' + req.body.item_name + '" }\')';
+			var img = req.files.img;
+			img.mv(path.dirname(__dirname) + '/static/images/' + req.body.item_name + '/' + req.files.img['name'], 
+				function(err) { if(err) { console.log(err) }
+			});
+			name = 'images';
+			redirect = true;
+		} else {
+			name = req.body.item_name;
+			valuestr = req.body.name + ', \'{}\'' + ')';
+		}
+		console.log('SELECT id FROM data_items WHERE name=\'' + name + '\'');	
+
+		const item_id = await client.query('SELECT id FROM data_items WHERE name=\'' + name + '\'');	
 			
-		const query = await client.query('INSERT INTO data(item_id, name, json) VALUES (' +  item_id.rows[0]['id'] + 
-						  ', \'' + req.body.name + '\', \'{}\')');
-				
-		res.send('yes');
-	} catch(err) {
-		console.log("Error: " + err);
-	}
-});
+		valuestr = '(' + item_id.rows[0]['id'] + ', ' + valuestr;
+		
+		console.log('INSERT into data(item_id, name, json) VALUES ' + valuestr);
 
-router.post('/add-pic', async (req,res) => {
-	try {
-		const client = await pool.connect();
-//		const item_id = await client.query('SELECT id from img_items WHERE name=\'' + req.body.item_name + '\'');
-		console.log(req.files.fileinput['data']);
-//		const query = await client.query('INSERT INTO images
-
+		const query = await client.query('INSERT into data(item_id, name, json) VALUES ' + valuestr);
+		
+		if(redirect) {
+			res.redirect('/admin/' + req.body.item_name);
+		} else {
+			res.send('yes');
+		}
 		client.release();
 	} catch(err) {
-		console.log(""+ err);
+		console.log("Error: " + err);
 	}
 });
 

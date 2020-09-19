@@ -3,7 +3,7 @@
 <% for( var i of data['info'] ) { %>
 	<p class="line-height-70">
 	<% if(i['json']) { %>
-		<%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="infolink">
+		<%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="blueText">
 			<%= i['json']['info'] %></a> 
 	<% } else { %>
 		<%= i['name'] %>

@@ -5,7 +5,7 @@
 		<% for(var i of data['info']) { %>
         <p>
         <% if(i['json']) { %>
-            <%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="infolink">
+            <%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="blueText">
             <%= i['json']['info'] %></a> 
         <% } else { %>
             <%= i['name'] %>
@@ -23,7 +23,7 @@
     <% for(var i of data['info']) { %>
 		<p>
 		<% if(i['json']) { %>
-			<%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="infolink">
+			<%= i['name'] %> | <a href="<%= i['json']['link'] %>" class="blueText">
 			<%= i['json']['info'] %></a> 
 		<% } else { %>
 			<%= i['name'] %>

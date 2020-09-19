@@ -3,7 +3,7 @@
 
 body { height: 100%; color: #A0031B; font-family: 'Montserrat', sans-serif; background-color: #F5F5F5; }
 .font-acme { font-family: 'Acme', sans-serif; }
-.gmap_canvas {overflow:hidden;background:none!important;height:350px;width:350px;}<
+.gmap_canvas {overflow:hidden;background:none!important;height:350px;width:350px;}
 .margin0 { margin: 0px; }
 .alignCenter { text-align: center; }
 .nav-link-custom {	color: #A0031B; text-align: center; }
@@ -32,6 +32,6 @@ body { height: 100%; color: #A0031B; font-family: 'Montserrat', sans-serif; back
 .width100 { width: 100%; }
 .padding0 { padding : 0% }
 #footer { background-color: #212121; color: #D6D6D6; border-top: solid #5688C7 3px; } 
-.infolink { color: #5688C7; }
+.blueText { color: #5688C7; }
 .line-height-70 { line-height: 70%; }
 .alignLeft { text-align: left; }
